@@ -1,5 +1,49 @@
 #!/usr/bin/env bash
+# `MD046` - Code Block Style
 
+Tags: `code`
+
+Aliases: `code-block-style`
+
+## Parameters
+
+- `style`: Block style (`string`, default `consistent`, values `consistent` / `fenced` / `indented`)
+
+## Description
+
+This rule is triggered when inconsistent code block styles are used within the same document. Consistent formatting makes it easier to understand a document.
+
+## Default Behavior
+
+In the default configuration, this rule reports a violation for the following document:
+
+<!-- markdownlint-disable code-block-style -->
+
+    Some text.
+
+            # Indented code
+
+                More text.
+
+                    ```ruby
+                        # Fenced code
+                            ```
+
+                                More text.
+
+                                <!-- markdownlint-restore -->
+
+                                ## Fixing Violations
+
+                                To fix violations of this rule, use a consistent style (either indenting or code fences).
+
+                                The configured code block style can be specific (`fenced`, `indented`) or can require all code blocks to match the first code block (`consistent`).
+
+                                ## Rationale
+
+                                Consistent formatting makes it easier to understand a document.
+
+                                
 # set -x
 
 ENABLE_CONDA=1
